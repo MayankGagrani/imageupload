@@ -1,0 +1,10 @@
+<h1><center>Show all Albums</center></h1>
+<% if @albums %>
+  <div id="albums">
+    <ul>
+      <% @albums.each do |album| %>
+        <li><%= link_to album.title, album_path(id:album.id, secret: album.secret)%></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+
+<div class="col-lg-3">
+  <div class="card" style="width: 18rem;">
+    <%= link_to image_tag(thumb.img.url(:thumb), class: 'card-img-top img-custom', style: 'height: 200px ; width: 100%; object-fit: cover;' ),
+          thumb.url(:medium),
+          :rel => "colorbox" %>
+    <div class="card-body">
+      <p class="card-text"><%= thumb.author_name %>, <%= thumb.taken_at.asctime%></p>
+      <% if !current_user.blank? && @user_status %>
+      
+    </div>
+    <%= button_to "Delete", 
+        image_path(thumb, image_id: thumb.id, album_secret: @album.secret),
+        method: :delete,
+        confirm: "Are you sure you want to delete this image?",
+        title: "Image deletion",
+        remote: true,
+        class: 'card-footer bg-success  btn btn-success btn-block'
+      %>
+    <% end %>
+  </div>
+</div>
+ 
